@@ -1,3 +1,12 @@
+import Sidebar from '@/components/Sidebar'
+
 export default function PunishmentsLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>
+  return (
+    <div className="admin-layout">
+      <Sidebar />
+      <main className="admin-main">
+        {children}
+      </main>
+    </div>
+  )
 }
