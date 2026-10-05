@@ -137,7 +137,7 @@ export default function UnlocksPage() {
             color: 'var(--danger)',
             fontSize: 14,
           }}>
-            ❌ <strong>No emergency unlocks remaining.</strong> You must contact admin to add more.
+            ❌ <strong>No emergency unlocks remaining.</strong> Click 'Change Limit' to queue an increase (takes 24 hours).
           </div>
         )}
       </div>
