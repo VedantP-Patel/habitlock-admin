@@ -1,10 +1,4 @@
-import Sidebar from '@/components/Sidebar'
-
+﻿import AuthGuard from '@/components/AuthGuard'
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <div className="admin-layout">
-      <Sidebar />
-      <main className="admin-main">{children}</main>
-    </div>
-  )
+  return <AuthGuard>{children}</AuthGuard>
 }

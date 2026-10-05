@@ -38,8 +38,12 @@ export default function HabitsPage() {
   const [toast, setToast] = useState<{ msg: string; type: 'success' | 'error' | 'info' } | null>(null)
 
   const fetchData = useCallback(async () => {
+    setLoading(true)
     const { data: { user } } = await supabase.auth.getUser()
-    if (!user) return
+    if (!user) {
+      setLoading(false)
+      return
+    }
     const [{ data: h }, { data: p }] = await Promise.all([
       supabase.from('habits').select('*').eq('user_id', user.id).order('order_index'),
       supabase.from('pending_changes').select('*').eq('user_id', user.id).eq('applied', false).order('created_at', { ascending: false }),
