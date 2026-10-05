@@ -8,6 +8,14 @@ interface CountdownProps {
   className?: string
 }
 
+export function Card({ children, className = '' }: { children: React.ReactNode, className?: string }) {
+  return (
+    <div className={`glass-card ${className}`}>
+      {children}
+    </div>
+  )
+}
+
 export function Countdown({ targetTime, className = '' }: CountdownProps) {
   const calcRemaining = useCallback(() => {
     const diff = differenceInSeconds(parseISO(targetTime), new Date())
